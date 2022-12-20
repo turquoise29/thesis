@@ -10,21 +10,23 @@ def makeFig(fileLocal, saveDir):
     df = pd.read_csv(fileLocal, header = 0, skiprows = 2, encoding = 'UTF8')
     first_df = df[df.keys()[0]] /1000000
     second_df = df[df.keys()[2]]
+    plt.rcParams['xtick.direction'] = 'in'
+    plt.rcParams['ytick.direction'] = 'in'
     plt.plot(first_df, second_df
-                , color = "m"
+                #, color = "m"
             )
     plt.xlabel("Frequency (MHz)", fontsize=24)
     plt.ylabel("Amplitude (dBm)", fontsize=24)
     #plt.legend(frameon=False, fontsize=18)
     #plt.xlim(12.8,12.9)
-    plt.tick_params(labelsize=24)
+    plt.tick_params(width = 2, length = 10,labelsize=24)
     plt.tight_layout()
     plt.savefig(saveDir + "/" + fileName + ".png")
     plt.clf()
 ###########################################################################################
 
-dir = "G:\\My Drive\\Research\\data\\20221216_Resonance2"
-outDir = "G:\\My Drive\\Research\\data\\20221216_Resonance2\\output"
+dir = "G:\\My Drive\\Research\\data\\20221202_Resonance"
+outDir = "G:\\My Drive\\Research\\data\\20221202_Resonance\\output"
 
 ###########################################################################################
 

@@ -12,6 +12,8 @@ def makeFig2():
     file_number = len(files)
     plt.figure(figsize=(10,5), dpi=50)
     #plt.figure(figsize=(6,4), dpi=50)
+    plt.rcParams['xtick.direction'] = 'in'
+    plt.rcParams['ytick.direction'] = 'in'
     for file in files:
         array = pd.read_csv(file, header=None, skiprows = 19, skipfooter=46, encoding = "shift-jis", engine='python').values
         fileName = os.path.splitext(os.path.basename(file))[0]
@@ -31,8 +33,8 @@ def makeFig2():
     #plt.xlim(1550,1600) #Gピーク 
     plt.xlabel("Raman shift (cm$^{-1}$)",fontsize=24)
     plt.ylabel("Intensity (a.u.)",fontsize=24)
-    plt.legend(frameon=False, fontsize=20,loc=(0.40, 0.7))
-    plt.tick_params(labelsize=24)
+    plt.legend(frameon=False, fontsize=20)
+    plt.tick_params(width = 2, length = 10,labelsize=24)
     plt.tight_layout()
     plt.savefig(outDir + "/output" + ".png", bbox_inches='tight')
     plt.clf()
