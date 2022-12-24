@@ -8,12 +8,12 @@ from glob import glob
 def makeFig(fileLocal, saveDir):
     fileName = os.path.splitext(os.path.basename(fileLocal))[0]
     df = pd.read_csv(fileLocal, header = 0, skiprows = 2, encoding = 'UTF8')
-    first_df = df[df.keys()[0]] /1000000
+    first_df = df[df.keys()[0]] 
     second_df = df[df.keys()[2]]
     plt.rcParams['xtick.direction'] = 'in'
     plt.rcParams['ytick.direction'] = 'in'
     plt.plot(first_df, second_df
-                #, color = "m"
+                , color = "m"
             )
     plt.xlabel("Frequency (MHz)", fontsize=24)
     plt.ylabel("Amplitude (dBm)", fontsize=24)
@@ -25,8 +25,8 @@ def makeFig(fileLocal, saveDir):
     plt.clf()
 ###########################################################################################
 
-dir = "G:\\My Drive\\Research\\data\\20221202_Resonance"
-outDir = "G:\\My Drive\\Research\\data\\20221202_Resonance\\output"
+dir = "G:\\My Drive\\Research\\data\\20221224_Resonance"
+outDir = "G:\\My Drive\\Research\\data\\20221224_Resonance\\output"
 
 ###########################################################################################
 
