@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-Dir = "G:\\My Drive\\Research\\data\\20220618_Interference"
+Dir = "G:\\My Drive\\Research\\data\\20221207_Interference\\binding"
 
 def makeFig2():
     files = sorted(glob.glob(Dir + "/*.txt"))
@@ -25,8 +25,8 @@ def makeFig2():
     #,bbox_to_anchor=(1, 0)
     #, loc='lower right'
     #, borderaxespad=1
-    , fontsize=20)
-    plt.tick_params(width = 2, length = 10,labelsize=24)
+    , fontsize=14)
+    plt.tick_params(width = 2, length = 10,labelsize=14)
     plt.tight_layout()
     plt.savefig(Dir + "/output" + ".png", bbox_inches='tight')
     plt.clf()
