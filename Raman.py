@@ -26,8 +26,8 @@ def makeFig(fileLocal, saveDir):
 
 ###########################################################################################
 
-dir = "G:\\My Drive\\Research\\data\\20221213_Raman"
-outDir = "G:\\My Drive\\Research\\data\\20221213_Raman\\graph"
+dir = "G:\\My Drive\\Research\\data\\20221228_Raman"
+outDir = "G:\\My Drive\\Research\\data\\20221228_Raman\\graph"
 
 ###########################################################################################
 
