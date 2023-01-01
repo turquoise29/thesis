@@ -6,8 +6,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\data\\20221216_Resonance"
-outDir = "G:\\My Drive\\Research\\data\\20221216_Resonance\\output"
+Dir = "G:\\My Drive\\Research\\B4\\data\\20230102_Resonance"
 
 def makeFig3():
     files = sorted(glob.glob(Dir + "/*.csv"))
@@ -43,10 +42,10 @@ def makeFig3():
     ax3.set_xlim(14.79,14.99)
     nami(ax,ax2)
     nami(ax2,ax3)
-    # fig.text(0.5, 0, 'Frequency (MHz)', ha='center', va='center', fontsize=24)
-    # fig.text(0, 0.5, 'Amplitude (dBm)', ha='center', va='center', rotation='vertical', fontsize=24)
+    ax2.set_xlabel("Frequency(MHz)",fontsize=14)
+    ax.set_ylabel("Amplitude(a.u.)",fontsize=14)
     plt.subplots_adjust(wspace=0.0)
-    fig.savefig(outDir + "/outputtttt" + ".png", bbox_inches='tight')
+    fig.savefig(Dir + "/output" + ".png", bbox_inches='tight')
     plt.clf()
 
 def nami(ax,ax2):
