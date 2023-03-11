@@ -6,43 +6,35 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20230102_Resonance"
+Dir = "G:\\My Drive\\Research\\B4\\data\\20230310_Resonance"
 
 def makeFig3():
     files = sorted(glob.glob(Dir + "/*.csv"))
     file_number = len(files)
+    plt.figure(figsize=(9,5), dpi=50)
     plt.rcParams['xtick.direction'] = 'in'
     plt.rcParams['ytick.direction'] = 'in'
-    fig, [ax, ax2, ax3] = plt.subplots(1, 3,sharey='row', sharex='col', figsize=(8, 2))
+    fig, [ax, ax2] = plt.subplots(1, 2,sharey='row', sharex='col', figsize=(8, 2))
     for file in files:
         array = pd.read_csv(file,header = 0, skiprows = 2, encoding = 'UTF8').values
         fileName = os.path.splitext(os.path.basename(file))[0]
-        if(fileName[0]=="s"):
-            kikaku1 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
-            ax3.plot(array[:, 0]/1000000, kikaku1,color = "b")
         if(fileName[0]=="m"):
-            kikaku2 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
-            ax2.plot(array[:, 0]/1000000, kikaku2, color="y")
+            kikaku1 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
+            ax2.plot(array[:, 0]/1000000, kikaku1,color = "b")
         else:
             kikaku3 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax.plot(array[:, 0]/1000000, kikaku3, color="r")
     
     ax.spines['right'].set_visible(False)
     ax2.spines['left'].set_visible(False)
-    ax2.spines['right'].set_visible(False)
-    ax3.spines['left'].set_visible(False)
+
     ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=14)
     ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=14)
-    ax3.tick_params(width = 2, length = 10,labelleft=False, left=False,labelsize=14)
     ax.set_xlim(11.76,11.96)
     ax2.set_xlim(12.78,12.9)
-    #ax.set_xticks([11.86])
-    ax2.set_xticks([12.80,12.85])
-    #ax3.set_xticks([14.89])
-    ax3.set_xlim(14.79,14.99)
+    ax2.set_xticks([12.80,12.85,12.90])
     nami(ax,ax2)
-    nami(ax2,ax3)
-    ax2.set_xlabel("Frequency(MHz)",fontsize=18)
+    fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=17)
     ax.set_ylabel("Amplitude(a.u.)",fontsize=17)
     plt.subplots_adjust(wspace=0.0)
     fig.savefig(Dir + "/output" + ".png", bbox_inches='tight')
