@@ -21,8 +21,8 @@ def makeFig(fileLocal, saveDir):
     plt.clf()
 ###########################################################################################
 
-dir = "G:\\My Drive\\Research\\data\\20221214_Interference"
-outDir = "G:\\My Drive\\Research\\data\\20221214_Interference"
+dir = "G:\\My Drive\\Research\\\B4\\data\\20230321_Interference"
+outDir = "G:\\My Drive\\Research\\B4\\data\\20230321_Interference\\output"
 
 ###########################################################################################
 

@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20230310_Resonance"
+Dir = "G:\\My Drive\\Research\\B4\\data\\20230325_Resonance2"
 
 def makeFig3():
     files = sorted(glob.glob(Dir + "/*.csv"))
@@ -30,9 +30,9 @@ def makeFig3():
 
     ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=14)
     ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=14)
-    ax.set_xlim(11.76,11.96)
-    ax2.set_xlim(12.78,12.9)
-    ax2.set_xticks([12.80,12.85,12.90])
+    #ax.set_xlim(11.76,11.96)
+    #ax2.set_xlim(12.78,12.9)
+    #ax2.set_xticks([12.80,12.85,12.90])
     nami(ax,ax2)
     fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=17)
     ax.set_ylabel("Amplitude(a.u.)",fontsize=17)

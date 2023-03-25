@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20230102_Resonance"
+Dir = "G:\\My Drive\\Research\\B4\\data\\20230325_Resonance2"
 
 def makeFig3():
     files = sorted(glob.glob(Dir + "/*.csv"))
@@ -21,7 +21,7 @@ def makeFig3():
         if(fileName[0]=="s"):
             kikaku1 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax3.plot(array[:, 0]/1000000, kikaku1,color = "b")
-        if(fileName[0]=="m"):
+        elif(fileName[0]=="m"):
             kikaku2 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax2.plot(array[:, 0]/1000000, kikaku2, color="y")
         else:
@@ -35,18 +35,18 @@ def makeFig3():
     ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=14)
     ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=14)
     ax3.tick_params(width = 2, length = 10,labelleft=False, left=False,labelsize=14)
-    ax.set_xlim(11.76,11.96)
-    ax2.set_xlim(12.78,12.9)
+    #ax.set_xlim(11.76,11.96)
+    #ax2.set_xlim(12.78,12.9)
     #ax.set_xticks([11.86])
-    ax2.set_xticks([12.80,12.85])
+    #ax2.set_xticks([12.80,12.85])
     #ax3.set_xticks([14.89])
-    ax3.set_xlim(14.79,14.99)
+    #ax3.set_xlim(14.79,14.99)
     nami(ax,ax2)
     nami(ax2,ax3)
     ax2.set_xlabel("Frequency(MHz)",fontsize=18)
     ax.set_ylabel("Amplitude(a.u.)",fontsize=17)
     plt.subplots_adjust(wspace=0.0)
-    fig.savefig(Dir + "/output" + ".png", bbox_inches='tight')
+    fig.savefig(Dir + "/output3" + ".png", bbox_inches='tight')
     plt.clf()
 
 def nami(ax,ax2):
