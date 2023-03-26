@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20230325_Resonance2"
+Dir = "G:\\My Drive\\Research\\B4\\data\\20230333_Resonance"
 
 def makeFig3():
     files = sorted(glob.glob(Dir + "/*.csv"))
@@ -39,7 +39,7 @@ def makeFig3():
     #ax2.set_xlim(12.78,12.9)
     #ax.set_xticks([11.86])
     #ax2.set_xticks([12.80,12.85])
-    #ax3.set_xticks([14.89])
+    ax3.set_xticks([15.27,15.34])    
     #ax3.set_xlim(14.79,14.99)
     nami(ax,ax2)
     nami(ax2,ax3)
