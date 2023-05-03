@@ -8,9 +8,8 @@ from matplotlib.path import Path
 
 Dir = "G:\\My Drive\\Research\\B4\\data\\20230325_Resonance2"
 
-def makeFig3():
+def makeFig2():
     files = sorted(glob.glob(Dir + "/*.csv"))
-    file_number = len(files)
     plt.figure(figsize=(9,5), dpi=50)
     plt.rcParams['xtick.direction'] = 'in'
     plt.rcParams['ytick.direction'] = 'in'
@@ -58,4 +57,4 @@ def nami(ax,ax2):
     a = ax2.add_patch(line1)
     a = ax2.add_patch(line2)
 
-makeFig3()
+makeFig2()
