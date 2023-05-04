@@ -1,36 +1,30 @@
-from cv2 import dft
-import matplotlib.pyplot as plt
-import pandas as pd
 import os
-from glob import glob
+import glob
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
-def makeFig(fileLocal, saveDir):
-    fileName = os.path.splitext(os.path.basename(fileLocal))[0]
-    df = pd.read_csv(fileLocal, header=None, skiprows = 19, skipfooter=47, encoding = "shift-jis", engine='python')
-    first_df = df[df.keys()[0]] 
-    second_df = df[df.keys()[1]]
-    plt.rcParams['xtick.direction'] = 'in'
-    plt.rcParams['ytick.direction'] = 'in'
-    plt.plot(first_df, second_df)
-    plt.xlim(1000,3000)
-    plt.xlabel("Raman shift (cm$^{-1}$)")
-    plt.ylabel("Intensity (a.u.)")
-    #plt.ylim(0,50)
-    plt.tick_params(width = 2, length = 10,labelsize=24)
-    #plt.legend(frameon=False)
+def makeFig(file_path, save_dir):
+    file_name = os.path.splitext(os.path.basename(file_path))[0]
+    df = pd.read_csv(file_path, header=None, skiprows=19, skipfooter=47, encoding="shift-jis", engine='python')
+    x, y = df[0], df[1]
+    plt.plot(x, y)
+    plt.xlim(1000, 3000)
+    plt.xlabel("Raman shift (cm$^{-1}$)", fontsize=14)
+    plt.ylabel("Intensity (a.u.)", fontsize=14)
+    plt.tick_params(width=2, length=10, labelsize=14, direction="in")
     plt.tight_layout()
-    plt.savefig(saveDir + "/" + fileName + ".png", bbox_inches='tight')
+    plt.savefig(os.path.join(save_dir, file_name + ".png"), bbox_inches='tight')
     plt.clf()
 
 
 ###########################################################################################
 
 dir = "G:\\My Drive\\Research\\M1\\data\\20230411_Raman\\A1"
-outDir = dir + "\\graph"
+outdir = os.path.join(dir, "graph")
 
 ###########################################################################################
 
-fileList = glob(dir + "/*.csv")
-for file in fileList:
-    makeFig(file, outDir)
+file_list = glob.glob(os.path.join(dir, "*.csv"))
+for file_path in file_list:
+    makeFig(file_path, outdir)

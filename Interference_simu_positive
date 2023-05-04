@@ -8,6 +8,7 @@ D3 = 1.00
 D4 = 0.01
 D5 = 1.00
 wavelengths = np.arange(450, 651)
+
 for depth in range(800, 2101, 10):
     D6 = depth
     reflectances = []  # 反射率リストをリセット

@@ -6,18 +6,20 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20230333_Resonance"
-
 def makeFig3():
+    # Set the directory where the CSV files are located
+    Dir = "G:\\My Drive\\Research\\B4\\data\\20230333_Resonance"
+    # Get a list of all CSV files in the directory
     files = sorted(glob.glob(Dir + "/*.csv"))
-    file_number = len(files)
-    plt.figure(figsize=(8,5), dpi=50)
-    plt.rcParams['xtick.direction'] = 'in'
-    plt.rcParams['ytick.direction'] = 'in'
+    # Create a figure with three subplots
     fig, [ax, ax2, ax3] = plt.subplots(1, 3,sharey='row', sharex='col', figsize=(8, 2))
+    # Loop over all CSV files
     for file in files:
+        # Read the data from the CSV file
         array = pd.read_csv(file,header = 0, skiprows = 2, encoding = 'UTF8').values
+        # Get the filename without extension
         fileName = os.path.splitext(os.path.basename(file))[0]
+        # Plot the data on the appropriate subplot based on the filename
         if(fileName[0]=="s"):
             kikaku1 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax3.plot(array[:, 0]/1000000, kikaku1,color = "b")
@@ -27,7 +29,7 @@ def makeFig3():
         else:
             kikaku3 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax.plot(array[:, 0]/1000000, kikaku3, color="r")
-    
+    # Customize the subplots
     ax.spines['right'].set_visible(False)
     ax2.spines['left'].set_visible(False)
     ax2.spines['right'].set_visible(False)

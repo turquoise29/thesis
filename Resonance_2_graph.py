@@ -9,11 +9,14 @@ from matplotlib.path import Path
 Dir = "G:\\My Drive\\Research\\B4\\data\\20230325_Resonance2"
 
 def makeFig2():
+    # CSVファイルのリストを取得
     files = sorted(glob.glob(Dir + "/*.csv"))
+    # グラフの初期設定
     plt.figure(figsize=(9,5), dpi=50)
     plt.rcParams['xtick.direction'] = 'in'
     plt.rcParams['ytick.direction'] = 'in'
     fig, [ax, ax2] = plt.subplots(1, 2,sharey='row', sharex='col', figsize=(8, 2))
+    # CSVファイルを読み込み、グラフに追加
     for file in files:
         array = pd.read_csv(file,header = 0, skiprows = 2, encoding = 'UTF8').values
         fileName = os.path.splitext(os.path.basename(file))[0]
@@ -23,23 +26,23 @@ def makeFig2():
         else:
             kikaku3 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
             ax.plot(array[:, 0]/1000000, kikaku3, color="r")
-    
+    # グラフの軸を調整
     ax.spines['right'].set_visible(False)
     ax2.spines['left'].set_visible(False)
-
     ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=14)
     ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=14)
-    #ax.set_xlim(11.76,11.96)
-    #ax2.set_xlim(12.78,12.9)
-    #ax2.set_xticks([12.80,12.85,12.90])
+    # ニョロ波を追加
     nami(ax,ax2)
+    # グラフのタイトル・軸ラベルを設定
     fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=17)
     ax.set_ylabel("Amplitude(a.u.)",fontsize=17)
     plt.subplots_adjust(wspace=0.0)
+    # グラフを保存
     fig.savefig(Dir + "/output" + ".png", bbox_inches='tight')
     plt.clf()
 
 def nami(ax,ax2):
+    # ニョロ波の設定
     d1 = 0.02 # y軸のはみだし量
     d2 = 0.03 # ニョロ波の高さ
     wn = 21   # ニョロ波の数（奇数値を指定）

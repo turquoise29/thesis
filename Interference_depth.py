@@ -10,6 +10,7 @@ def makeFig(fileLocal, saveDir):
     array = df.values
     plt.rcParams['xtick.direction'] = 'in'
     plt.rcParams['ytick.direction'] = 'in'
+    plt.figure(figsize=(8, 6))
     plt.plot(array[:, 0], array[:, 1], label="reflectance")
     plt.xlim(450,650)
     plt.xticks(np.arange(450, 651, step=10))
@@ -17,16 +18,14 @@ def makeFig(fileLocal, saveDir):
     plt.ylabel("Reflectance (%)", fontsize=18)
     plt.ylim(0,40)
     plt.legend(frameon=False,fontsize=18)
+    plt.grid(axis='x', linestyle='--')
     plt.tick_params()
     plt.tight_layout()
     plt.savefig(saveDir + "/" + fileName + ".png")
     plt.clf()
-###########################################################################################
 
-dir = "G:\\My Drive\\Research\\\B4\\data\\20230321_Interference"
+dir = "G:\\My Drive\\Research\\B4\\data\\20230321_Interference"
 outDir = dir + "\\simulation"
-
-###########################################################################################
 
 fileList = glob(dir + "/*.txt")
 for file in fileList:
