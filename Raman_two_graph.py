@@ -18,6 +18,7 @@ def makeFig2():
             label = "no strain" if fileName[0] == "s" else "strain management"
             kikaku = (array[:, 1] - min(array[:, 1])) / (max(array[:, 1]) - min(array[:, 1]))
             plt.plot(array[:, 0], kikaku, label=label, color='b' if fileName[0] == "k" else 'r')
+        
         plt.xlim(xlims[i])
         plt.xlabel("Raman shift (cm$^{-1}$)", fontsize=24)
         plt.ylabel("Intensity (a.u.)", fontsize=24)

@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from glob import glob
 
+
 def makeFig(fileLocal, saveDir):
     fileName = os.path.splitext(os.path.basename(fileLocal))[0]
     df = pd.read_csv(fileLocal, header=0, skiprows=2, encoding='UTF8')

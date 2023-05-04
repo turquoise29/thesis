@@ -11,7 +11,7 @@ wavelengths = np.arange(450, 651)
 
 for depth in range(800, 2101, 10):
     D6 = depth
-    reflectances = []  # 反射率リストをリセット
+    reflectances = [] 
     for wavelength in wavelengths:
         A7 = wavelength
         n = np.sqrt(D2*D4)*(1-2*(np.sqrt(D2*D4)+np.sqrt(D3*D5))*np.cos(4*np.pi*D6/A7)+(np.sqrt(D2*D4)+np.sqrt(D3*D5))*(np.sqrt(D2*D4)+np.sqrt(D3*D5)))/(1+(D2*D4)-2*np.sqrt(D2*D4)*np.cos(4*np.pi*D6/A7))*100

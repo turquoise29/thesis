@@ -23,6 +23,7 @@ def makeFig(filePath, saveDir):
 dir = "G:\\My Drive\\Research\\B4\\data\\20230321_Interference"
 outDir = os.path.join(dir, "output")
 
+
 fileList = glob(os.path.join(dir, "*.txt"))
 for filePath in fileList:
     makeFig(filePath, outDir)

@@ -4,7 +4,6 @@ import os
 
 Dir = "G:\\My Drive\\Research\\LaTeX\\marge"
 
-
 files = glob.glob(Dir + "/*.pdf")
 sfiles = sorted(files)
 doc = fitz.open()
