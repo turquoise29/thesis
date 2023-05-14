@@ -16,7 +16,7 @@ def makeFig2():
     plt.xlim(400, 800)
     plt.xlabel("Wavelength (nm)", fontsize=24)
     plt.ylabel("Reflectance (%)", fontsize=24)
-    plt.ylim(0, 40)
+    plt.ylim(0, 100)
     plt.legend(frameon=False, fontsize=20)
     plt.tick_params(width=2, length=10, labelsize=24)
     plt.tight_layout()

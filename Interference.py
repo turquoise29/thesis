@@ -13,14 +13,14 @@ def makeFig(filePath, saveDir):
     plt.xlim([400, 800])
     plt.xlabel("Wavelength (nm)", fontsize=18)
     plt.ylabel("Reflectance (%)", fontsize=18)
-    plt.ylim([0, 40])
+    plt.ylim([0, 100])
     plt.legend(frameon=False, fontsize=18)
     plt.tick_params(width=2, length=10, labelsize=18)
     plt.tight_layout()
     plt.savefig(os.path.join(saveDir, f"{fileName}.png"))
     plt.clf()
 
-dir = "G:\\My Drive\\Research\\B4\\data\\20230321_Interference"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230514_Interference"
 outDir = os.path.join(dir, "output")
 
 
