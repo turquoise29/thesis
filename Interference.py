@@ -21,7 +21,7 @@ def makeFig(filePath, saveDir):
     plt.savefig(os.path.join(saveDir, f"{fileName}.png"))
     plt.clf()
 
-dir = "G:\\My Drive\\Research\\M1\\data\\20230522_Interference"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230526_Interference"
 outDir = os.path.join(dir, "output")
 
 

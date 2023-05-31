@@ -7,7 +7,7 @@ Dir = "G:\\My Drive\\Research\\LaTeX\\marge"
 files = glob.glob(Dir + "/*.pdf")
 sfiles = sorted(files)
 doc = fitz.open()
- 
+
 for file in sfiles:
     infile = fitz.open(file)
     doc_lastPage = len(doc)

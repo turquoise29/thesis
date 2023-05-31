@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-Dir = "G:\\My Drive\\Research\\B4\\data\\20221207_Interference\\binding"
+Dir = "G:\\My Drive\\Research\\M1\\data\\20230528_Interference"
 
 def makeFig2():
     plt.figure(figsize=(8,5))
