@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-Dir = "G:\\My Drive\\Research\\M1\\data\\20230507_Raman_transducers"
+Dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Raman_SensorSimposium"
 
 def makeFig2():
     files = sorted(glob.glob(f"{Dir}/*.csv"))
@@ -11,7 +11,7 @@ def makeFig2():
     plt.rcParams['ytick.direction'] = 'in'
     xlims = [(1500,2800), (2625,2700), (1550,1600)]
     for i in range(3):
-        fig, ax = plt.subplots(figsize=(9, 6))  # Set figsize to a horizontal orientation
+        fig, ax = plt.subplots(figsize=(9, 6))
         for file in files:
             array = pd.read_csv(file, header=None, skiprows=19, skipfooter=47, encoding="shift-jis", engine='python').values
             fileName = os.path.splitext(os.path.basename(file))[0]

@@ -15,7 +15,7 @@ def find_peaks(file_path):
         # データ読み込み時のエラーが発生した場合や空のファイルの場合は None を返す
         return None, None
 
-dir = "G:\\My Drive\\Research\\M1\\data\\20230529_Raman_NoStrainCavity-3um"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Raman_SensorSimposium"
 file_list = glob.glob(os.path.join(dir, "*.csv"))
 
 results = []

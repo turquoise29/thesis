@@ -5,11 +5,11 @@ from glob import glob
 
 def calculate_resonant_frequency_Q(csv_file):
     data = pd.read_csv(csv_file, header=0, skiprows=2, encoding='UTF8')
-    frequencies = data.iloc[:, 0].values.astype(float) 
-    amplitudes_dBm = data.iloc[:, 2].values.astype(float) 
+    frequencies = data.iloc[:, 0].values.astype(float)
+    amplitudes_dBm = data.iloc[:, 2].values.astype(float)
     max_amplitude_index = np.argmax(amplitudes_dBm)
     resonant_frequency = frequencies[max_amplitude_index]
-    half_power_amplitude = amplitudes_dBm[max_amplitude_index] - 3 
+    half_power_amplitude = amplitudes_dBm[max_amplitude_index] - 3
     indices_left = np.where(amplitudes_dBm[:max_amplitude_index] <= half_power_amplitude)[0]
     indices_right = np.where(amplitudes_dBm[max_amplitude_index:] <= half_power_amplitude)[0] + max_amplitude_index
     left_index = indices_left[-1] if len(indices_left) > 0 else 0
@@ -19,7 +19,7 @@ def calculate_resonant_frequency_Q(csv_file):
 
     return resonant_frequency, q_value
 
-dir = "G:\\My Drive\\Research\\B4\\data\\20220623_Resonance2"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Resonance"
 
 csv_files = glob(os.path.join(dir, "*.csv"))
 results = []

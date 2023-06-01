@@ -13,10 +13,10 @@ def makeFig2():
         array = pd.read_table(file, header=None, skiprows=66, skipfooter=1, encoding="cp932", engine="python").values
         label = "no graphene" if os.path.splitext(os.path.basename(file))[0][0]=="k" else "suspended graphene"
         plt.plot(array[:, 0], array[:, 1], label=label)
-    plt.xlim(400, 800)
+    plt.xlim(400, 700)
     plt.xlabel("Wavelength (nm)", fontsize=24)
     plt.ylabel("Reflectance (%)", fontsize=24)
-    plt.ylim(0, 100)
+    plt.ylim(0, 50)
     plt.legend(frameon=False, fontsize=20)
     plt.tick_params(width=2, length=10, labelsize=24)
     plt.tight_layout()

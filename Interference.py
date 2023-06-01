@@ -17,6 +17,10 @@ def makeFig(filePath, saveDir):
     plt.ylim([0,40])
     plt.legend(frameon=False, fontsize=18)
     plt.tick_params(width=2, length=10, labelsize=18)
+    plt.axvline(x=638, color='red', linestyle='--', label='638nm')
+    plt.axvline(x=532, color='green', linestyle='--', label='532nm')
+
+
     plt.tight_layout()
     plt.savefig(os.path.join(saveDir, f"{fileName}.png"))
     plt.clf()

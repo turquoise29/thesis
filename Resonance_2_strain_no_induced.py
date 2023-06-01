@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.patches as mpatches
 from matplotlib.path import Path
 
-Dir = "G:\\My Drive\\Research\\M1\\data\\20230225_Resonance_strain-no-induced"
+Dir = "G:\\My Drive\\Research\\M1\\data\\20230601_Resonance_strain-no-induced"
 
 def makeFig2():
     files = sorted(glob.glob(Dir + "/*.csv"))
@@ -36,7 +36,7 @@ def makeFig2():
 
 
     nami(ax,ax2)
-    
+
     fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=17)
     ax.set_ylabel("Amplitude(a.u.)",fontsize=17)
     plt.subplots_adjust(wspace=0.0)
