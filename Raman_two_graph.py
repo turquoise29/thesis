@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-Dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Raman_SensorSimposium"
+Dir = "G:\\My Drive\\Research\\M1\\data\\20230507_Raman_transducers"
 
 def makeFig2():
     files = sorted(glob.glob(f"{Dir}/*.csv"))
@@ -11,7 +11,7 @@ def makeFig2():
     plt.rcParams['ytick.direction'] = 'in'
     xlims = [(1500,2800), (2625,2700), (1550,1600)]
     for i in range(3):
-        fig, ax = plt.subplots(figsize=(9, 6))
+        fig, ax = plt.subplots(figsize=(7, 7))
         for file in files:
             array = pd.read_csv(file, header=None, skiprows=19, skipfooter=47, encoding="shift-jis", engine='python').values
             fileName = os.path.splitext(os.path.basename(file))[0]
@@ -20,10 +20,10 @@ def makeFig2():
             plt.plot(array[:, 0], kikaku, label=label, color='b' if fileName[0] == "k" else 'r')
         
         plt.xlim(xlims[i])
-        plt.xlabel("Raman shift (cm$^{-1}$)", fontsize=24)
-        plt.ylabel("Intensity (a.u.)", fontsize=24)
-        plt.legend(frameon=False, fontsize=20)
-        plt.tick_params(width=2, length=10, labelsize=24)
+        plt.xlabel("Raman shift (cm$^{-1}$)", fontsize=24)#24
+        plt.ylabel("Intensity (a.u.)", fontsize=24)#24
+        plt.legend(frameon=False, fontsize=24)#24
+        plt.tick_params(width=2, length=10, labelsize=24)#24
         plt.tight_layout()
         plt.savefig(f"{Dir}/output{i+1}.png", bbox_inches='tight')
         plt.clf()

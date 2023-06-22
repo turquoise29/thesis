@@ -19,26 +19,26 @@ def makeFig2():
         fileName = os.path.splitext(os.path.basename(file))[0]
         if(fileName[0]=="s"):
             kikaku1 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
-            ax2.plot(array[:, 0]/1000000, kikaku1,color = "b", label="Strain-Induced")
+            ax2.plot(array[:, 0]/1000000, kikaku1,color = "r", label="Strain-Induced")
         else:
             kikaku3 = (array[:,2] - min(array[:,2]))/(max(array[:,2])-min(array[:,2]))
-            ax.plot(array[:, 0]/1000000, kikaku3, color="r", label="No Strain")
+            ax.plot(array[:, 0]/1000000, kikaku3, color="b", label="No Strain")
 
     ax.spines['right'].set_visible(False)
     ax2.spines['left'].set_visible(False)
-    ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=14)
-    ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=14)
-    ax.legend(frameon=False, fontsize=18, loc='lower center', bbox_to_anchor=(.5, 1.1))
-    ax2.legend(frameon=False, fontsize=18, loc='lower center', bbox_to_anchor=(.5, 1.1))
-    ax.tick_params(width=2, length=10, labelsize=14)
-    ax2.tick_params(width=2, length=10, labelsize=14)
+    ax2.tick_params(width = 2, length = 10,labelleft=False, labelright=False, left=False, right=False,labelsize=20)
+    ax.tick_params(width = 2, length = 10,labelright=False, right=False,labelsize=20)
+    ax.legend(frameon=False, fontsize=20, loc='lower center', bbox_to_anchor=(.5, 1.1))
+    ax2.legend(frameon=False, fontsize=20, loc='lower center', bbox_to_anchor=(.5, 1.1))
+    ax.tick_params(width=2, length=10, labelsize=20)
+    ax2.tick_params(width=2, length=10, labelsize=20)
     plt.tight_layout()
 
 
     nami(ax,ax2)
 
-    fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=17)
-    ax.set_ylabel("Amplitude(a.u.)",fontsize=17)
+    fig.text(0.5, -0.1, 'Frequency(MHz)', ha='center', va='center', fontsize=20)
+    ax.set_ylabel("Amplitude(a.u.)",fontsize=20)
     plt.subplots_adjust(wspace=0.0)
     fig.savefig(Dir + "/output" + ".png", bbox_inches='tight')
     plt.clf()

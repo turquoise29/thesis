@@ -19,7 +19,7 @@ def makeFig(fileLocal, saveDir):
     plt.savefig(os.path.join(saveDir, fileName + ".png"))
     plt.clf()
 
-dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Resonance"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230622_Resonance"
 outDir = dir + "\\output"
 
 fileList = glob(os.path.join(dir, "*.csv"))
