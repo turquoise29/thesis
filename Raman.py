@@ -17,7 +17,7 @@ def makeFig(file_path, save_dir):
     plt.savefig(os.path.join(save_dir, file_name + ".png"), bbox_inches='tight')
     plt.clf()
 
-dir = "G:\\My Drive\\Research\\M1\\data\\20230411_Raman\\A1"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230721_Raman_StrainField-4month-C9&10"
 outdir = os.path.join(dir, "graph")
 
 file_list = glob.glob(os.path.join(dir, "*.csv"))

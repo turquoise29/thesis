@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-Dir = "G:/My Drive/Research/M1/data/20230529_Raman_G-2D"
+Dir = "G:/My Drive/Research/M1/data/20230723_Raman_G-2D-4month"
 
 def makeFig2():
     plt.rcParams['xtick.direction'] = 'in'

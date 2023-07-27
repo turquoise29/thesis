@@ -19,7 +19,7 @@ def calculate_resonant_frequency_Q(csv_file):
 
     return resonant_frequency, q_value
 
-dir = "G:\\My Drive\\Research\\M1\\data\\20230531_Resonance"
+dir = "G:\\My Drive\\Research\\M1\\data\\20230622_Resonance"
 
 csv_files = glob(os.path.join(dir, "*.csv"))
 results = []
@@ -27,9 +27,9 @@ results = []
 for csv_file in csv_files:
     resonant_frequency, q_value = calculate_resonant_frequency_Q(csv_file)
     file_name = os.path.basename(csv_file)
-    results.append({'CSV File': file_name, 'Resonant Frequency': resonant_frequency, 'Q Value': q_value})
+    results.append({'CSV File': file_name, 'Resonant Frequency[Hz]': resonant_frequency, 'Quality Factor[-]': q_value})
 
 df = pd.DataFrame(results)
 
-output_file = os.path.join(dir, 'Q_results.xlsx')
+output_file = os.path.join(dir, 'fandQ_results.xlsx')
 df.to_excel(output_file, index=False)
